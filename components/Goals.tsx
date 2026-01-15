@@ -3,10 +3,10 @@
 import { motion } from 'framer-motion'
 
 const goals = [
-  'Launch my own web agency',
-  'Start a web development Youtube channel',
-  'Gain more customers',
-  'Learn new frameworks and libraries',
+  'Begin Tech content creation',
+  'Learn new AI frameworks',
+  'Work on a new startup idea',
+  'Learn a new language',
 ]
 
 export default function Goals() {

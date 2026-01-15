@@ -11,6 +11,7 @@ import ExperiencePanel from '@/components/ExperiencePanel'
 import Goals from '@/components/Goals'
 import AchievementsMetrics from '@/components/AchievementsMetrics'
 import Certificates from '@/components/Certificates'
+import AsciiArtPanel from '@/components/AsciiArtPanel'
 
 export default function Home() {
   return (
@@ -46,9 +47,12 @@ export default function Home() {
                 <Goals />
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
                 <AchievementsMetrics />
-                <Certificates />
+                <div className="flex flex-col space-y-3 h-full">
+                  <Certificates />
+                  <AsciiArtPanel />
+                </div>
               </div>
             </div>
           </div>

@@ -3,13 +3,13 @@
 import { motion } from 'framer-motion'
 
 const tools = [
-  { name: 'Figma', description: 'UI/UX Design' },
-  { name: 'Adobe After Effects', description: 'Motion Design' },
-  { name: 'VS Code', description: 'Code Editor' },
-  { name: 'Git & GitHub', description: 'Version Control' },
-  { name: 'Postman', description: 'API Testing' },
-  { name: 'Docker', description: 'Containerization' },
-  { name: 'Notion', description: 'Productivity' },
+  { name: 'LangGraph', description: 'AI/ML Workflow' },
+  { name: 'LangChain', description: 'LLM Framework' },
+  { name: 'Pinecone', description: 'Vector Database' },
+  { name: 'FastAPI', description: 'API Framework' },
+  { name: 'Next.js', description: 'React Framework' },
+  { name: 'Python', description: 'Programming Language' },
+  { name: 'PostgreSQL', description: 'Database' },
 ]
 
 export default function FavoriteTools() {

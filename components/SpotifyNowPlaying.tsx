@@ -14,7 +14,7 @@ export default function SpotifyNowPlaying() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.4 }}
       whileHover={{ scale: 1.02, y: -5 }}
-      className="glass-card p-5"
+      className="glass-card p-6"
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-3">
@@ -95,8 +95,8 @@ export default function SpotifyNowPlaying() {
         <h4 className="text-xs text-gray-400 mb-2 uppercase tracking-wider">Recently Played</h4>
         <div className="space-y-3">
           {[
-            { title: 'Blinding Lights', artist: 'The Weeknd' },
-            { title: 'Watermelon Sugar', artist: 'Harry Styles' },
+            { title: 'The Color Violet', artist: 'Tory Lanez', image: '/assets/tory-cover.png' },
+            { title: 'Jungle', artist: 'Drake', image: '/assets/jungle-cover.jpg' },
           ].map((track, index) => (
             <motion.div
               key={track.title}
@@ -106,7 +106,15 @@ export default function SpotifyNowPlaying() {
               whileHover={{ x: 5 }}
               className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer"
             >
-              <div className="w-10 h-10 rounded bg-white/5 flex-shrink-0"></div>
+              <div className="relative w-10 h-10 rounded overflow-hidden flex-shrink-0">
+                <Image
+                  src={track.image}
+                  alt={track.title}
+                  fill
+                  className="object-cover"
+                  quality={100}
+                />
+              </div>
               <div className="flex-1 min-w-0">
                 <p className="text-white text-xs font-medium truncate">{track.title}</p>
                 <p className="text-gray-400 text-xs truncate">{track.artist}</p>

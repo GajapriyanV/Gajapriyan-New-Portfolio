@@ -11,9 +11,7 @@ const experiences = [
     period: 'Sep 2025 - Dec 2025',
     logo: '/assets/morganstanley.jpg',
     details: [
-      'Working on scalable financial technology solutions',
-      'Collaborating with cross-functional teams to improve platform performance',
-      'Contributing to open-source projects and internal tooling',
+      'Incoming Software Engineer Intern working on enterprise-scale systems and financial technology',
     ],
   },
   {
@@ -22,9 +20,9 @@ const experiences = [
     period: 'May 2025 - Aug 2025',
     logo: '/assets/rbc1.png',
     details: [
-      'Developed security automation tools and CI/CD pipelines',
-      'Collaborated with security teams to implement best practices',
-      'Improved system reliability and monitoring capabilities',
+      'Automated cloud credential rotation across 50+ services, cutting manual security tickets by 90%.',
+      'Built vulnerability-scanning automation that reduced false deployment blocks by 85% and sped scans by 60%.',
+      'Improved Kubernetes efficiency by 40% through OpenShift resource tuning and Helm-based VPA configuration.',
     ],
   },
   {
@@ -33,9 +31,9 @@ const experiences = [
     period: 'May 2024 - Dec 2024',
     logo: '/assets/rbc1.png',
     details: [
-      'Built internal dashboards and small-scale SaaS tools with React and Node.js',
-      'Improved UI performance by 40% through code optimization and best practices',
-      'Introduced reusable component systems for faster development cycles',
+      'Built Spring Boot compliance APIs that reduced manual reporting time by 40% across capital markets systems.',
+      'Cut cloud resource usage by 50% by integrating load testing and chaos engineering into CI pipelines.',
+      'Created a certificate-management API to improve security visibility and lifecycle control by 25%.',
     ],
   },
 ]

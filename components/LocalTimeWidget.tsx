@@ -40,7 +40,7 @@ export default function LocalTimeWidget() {
       className="glass-card p-6"
     >
       <div className="flex items-center justify-center mb-4">
-        <h3 className="text-lg font-semibold text-white">My Local Time [USA]</h3>
+        <h3 className="text-lg font-semibold text-white">My Local Time [EST]</h3>
       </div>
       
       <motion.div
