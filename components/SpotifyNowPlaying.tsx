@@ -14,7 +14,7 @@ export default function SpotifyNowPlaying() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.4 }}
       whileHover={{ scale: 1.02, y: -5 }}
-      className="glass-card p-6"
+      className="glass-card px-4 md:px-6 pt-4 md:pt-6 pb-4 md:pb-6"
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-3">
@@ -67,7 +67,7 @@ export default function SpotifyNowPlaying() {
       {/* Action Buttons */}
       <div className="flex items-center space-x-3 mb-3">
         <motion.a
-          href="https://open.spotify.com"
+          href="https://open.spotify.com/search/Under%20Ground%20Kings%20Drake"
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.02 }}
@@ -93,13 +93,14 @@ export default function SpotifyNowPlaying() {
       {/* Recently Played Section */}
       <div className="pt-3 border-t border-white/10">
         <h4 className="text-xs text-gray-400 mb-2 uppercase tracking-wider">Recently Played</h4>
-        <div className="space-y-3">
+        <div className="space-y-2 md:space-y-3">
           {[
             { title: 'The Color Violet', artist: 'Tory Lanez', image: '/assets/tory-cover.png' },
+            { title: 'Funky Friday', artist: 'Dave', image: '/assets/DaveFredoFunkyFriday.png' },
             { title: 'Jungle', artist: 'Drake', image: '/assets/jungle-cover.jpg' },
           ].map((track, index) => (
             <motion.div
-              key={track.title}
+              key={`${track.title}-${index}`}
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}

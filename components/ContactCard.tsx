@@ -23,7 +23,7 @@ export default function ContactCard() {
       </p>
       
       <motion.a
-        href="mailto:contact@example.com"
+        href="mailto:gajapriyan.v@gmail.com"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         className="block w-full text-center py-3 px-6 bg-white/5 border border-white/10 rounded-lg text-white font-medium hover:bg-white/10 hover:border-white/20 transition-all"

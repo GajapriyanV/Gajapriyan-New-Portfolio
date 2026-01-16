@@ -87,19 +87,19 @@ export default function ExperiencePanel() {
                 </div>
                 
                 {/* Company and Role Info */}
-                <div className="flex-1 min-w-0">
+                <div className="flex-1 min-w-0 pr-2">
                   <div>
-                    <h4 className="text-white font-semibold text-base">{exp.company}</h4>
-                    <p className="text-gray-400 text-sm mt-0.5">{exp.role}</p>
+                    <h4 className="text-white font-semibold text-base break-words">{exp.company}</h4>
+                    <p className="text-gray-400 text-sm mt-0.5 break-words leading-relaxed">{exp.role}</p>
                   </div>
                 </div>
                 
                 {/* Date and Arrow - Aligned */}
                 <div className="flex items-center space-x-3 flex-shrink-0">
-                  <p className="text-gray-400 text-sm">{exp.period}</p>
+                  <p className="text-gray-400 text-sm hidden md:block">{exp.period}</p>
                   <motion.button
                     onClick={() => toggleExpand(index)}
-                    className="p-2 hover:bg-white/5 rounded-lg transition-colors"
+                    className="p-2 hover:bg-white/5 rounded-lg transition-colors flex-shrink-0"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >

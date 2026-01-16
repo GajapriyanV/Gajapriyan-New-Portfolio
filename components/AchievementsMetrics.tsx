@@ -38,7 +38,7 @@ function Counter({ value, suffix = '' }: { value: number; suffix?: string }) {
   }, [isInView, value])
 
   return (
-    <span ref={ref} className="text-3xl font-bold text-white text-left block">
+    <span ref={ref} className="text-2xl md:text-3xl font-bold text-white text-left block">
       {count.toLocaleString()}{suffix}
     </span>
   )
@@ -51,7 +51,7 @@ export default function AchievementsMetrics() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.5 }}
       whileHover={{ scale: 1.02, y: -5 }}
-      className="glass-card pt-4 px-4 pb-0 h-full"
+      className="glass-card p-4 md:p-6 h-full"
     >
       <div className="flex items-center space-x-2 mb-4">
         <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -60,19 +60,19 @@ export default function AchievementsMetrics() {
         <h3 className="text-lg font-semibold text-white">Achievements & Metrics</h3>
       </div>
       
-      <div className="grid grid-cols-2 gap-3 -mb-4">
+      <div className="grid grid-cols-2 gap-2 md:gap-3">
         {achievements.map((achievement, index) => (
           <motion.div
             key={achievement.label}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
-            className="bg-white/5 rounded-lg p-3 border border-white/10 text-left"
+            className="bg-white/5 rounded-lg p-2.5 md:p-3 border border-white/10 text-left overflow-hidden"
           >
             <div className="text-left">
               <Counter value={achievement.value} suffix={achievement.suffix} />
             </div>
-            <p className="text-gray-400 text-xs mt-2">{achievement.label}</p>
+            <p className="text-gray-400 text-xs mt-1.5 md:mt-2 break-words">{achievement.label}</p>
           </motion.div>
         ))}
       </div>

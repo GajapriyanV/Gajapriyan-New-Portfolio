@@ -30,8 +30,14 @@ export default function Home() {
                 <ProjectsGrid />
               </div>
               <SocialLinks />
+              {/* ContactCard - only visible on mobile, between SocialLinks and FavoriteTools */}
+              <div className="lg:hidden">
+                <ContactCard />
+              </div>
               <FavoriteTools />
-              <SpotifyNowPlaying />
+              <div className="hidden lg:block">
+                <SpotifyNowPlaying />
+              </div>
             </div>
 
             {/* Right Column - Mobile shows after left column */}
@@ -43,7 +49,10 @@ export default function Home() {
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <ContactCard />
+                {/* ContactCard - only visible on desktop */}
+                <div className="hidden lg:block">
+                  <ContactCard />
+                </div>
                 <Goals />
               </div>
               
@@ -51,6 +60,10 @@ export default function Home() {
                 <AchievementsMetrics />
                 <div className="flex flex-col space-y-3 h-full">
                   <Certificates />
+                  {/* SpotifyNowPlaying - only visible on mobile, between Certificates and AsciiArtPanel */}
+                  <div className="lg:hidden">
+                    <SpotifyNowPlaying />
+                  </div>
                   <AsciiArtPanel />
                 </div>
               </div>

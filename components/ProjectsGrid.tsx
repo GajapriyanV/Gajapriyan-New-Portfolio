@@ -7,37 +7,37 @@ const projects = [
     id: 1,
     name: 'Atlas',
     description: 'An AI-powered wealth platform that automatically rebalances portfolios and performs tax-loss harvesting using real-time market data and machine-learning risk models.',
-    github: 'https://github.com',
+    github: 'https://github.com/GajapriyanV?tab=repositories',
   },
   {
     id: 2,
     name: '6ixFlow',
     description: 'An AI-driven geospatial platform that predicts traffic congestion across Toronto using multi-year mobility data, Random Forest models, and an interactive map interface.',
-    github: 'https://github.com',
+    github: 'https://github.com/GajapriyanV?tab=repositories',
   },
   {
     id: 3,
     name: 'CourseCraft',
     description: 'An AI-powered course builder that generates structured learning roadmaps, videos, and assessments from simple user prompts.',
-    github: 'https://github.com',
+    github: 'https://github.com/GajapriyanV?tab=repositories',
   },
   {
     id: 4,
     name: 'SpectraHunter Simulation',
     description: 'A multithreaded C simulation of a networked ghost-hunting system where autonomous agents explore rooms, collect evidence, and react dynamically to encounters.',
-    github: 'https://github.com',
+    github: 'https://github.com/GajapriyanV?tab=repositories',
   },
   {
     id: 5,
     name: 'Task-Connect',
     description: 'A student-focused service marketplace that lets users showcase skills, find opportunities, and communicate through built-in real-time chat.',
-    github: 'https://github.com',
+    github: 'https://github.com/GajapriyanV?tab=repositories',
   },
   {
     id: 6,
     name: 'Sudoku Solver (Java)',
     description: 'A high-performance Sudoku solver that uses backtracking and recursion to compute 100% accurate solutions for any valid board.',
-    github: 'https://github.com',
+    github: 'https://github.com/GajapriyanV?tab=repositories',
   },
 ]
 
