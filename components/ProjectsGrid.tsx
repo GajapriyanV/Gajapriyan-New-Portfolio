@@ -47,7 +47,6 @@ export default function ProjectsGrid() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 }}
-      whileHover={{ scale: 1.01 }}
       className="glass-card p-6"
     >
       <div className="flex items-center space-x-2 mb-6">
@@ -65,8 +64,7 @@ export default function ProjectsGrid() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
-            whileHover={{ scale: 1.02, y: -2 }}
-            className="bg-white/5 rounded-lg p-4 border border-white/10 hover:border-white/20 transition-colors h-40 flex flex-col"
+            className="surface-tile p-4 h-40 flex flex-col"
           >
             {/* Icons Row */}
             <div className="flex items-start justify-between mb-3">

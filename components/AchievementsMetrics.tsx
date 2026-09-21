@@ -50,7 +50,6 @@ export default function AchievementsMetrics() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.5 }}
-      whileHover={{ scale: 1.02, y: -5 }}
       className="glass-card p-4 md:p-6 h-full"
     >
       <div className="flex items-center space-x-2 mb-4">
@@ -67,7 +66,7 @@ export default function AchievementsMetrics() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
-            className="bg-white/5 rounded-lg p-2.5 md:p-3 border border-white/10 text-left overflow-hidden"
+            className="surface-tile p-2.5 md:p-3 text-left overflow-hidden"
           >
             <div className="text-left">
               <Counter value={achievement.value} suffix={achievement.suffix} />

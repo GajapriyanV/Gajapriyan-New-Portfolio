@@ -6,34 +6,70 @@ import Image from 'next/image'
 
 const experiences = [
   {
-    company: 'Morgan Stanley',
+    company: 'Shopify',
     role: 'Incoming Software Engineer Intern',
-    period: 'Sep 2025 - Dec 2025',
-    logo: '/assets/morganstanley.jpg',
+    period: 'Winter 2027',
+    logo: '/assets/shopify.svg',
+    logoClassName: 'object-contain p-2',
     details: [
-      'Incoming Software Engineer Intern working on enterprise-scale systems and financial technology',
+      'Incoming Software Engineer Intern focused on developing scalable backend services and full-stack product features.',
+    ],
+  },
+  {
+    company: 'SAP',
+    role: 'Software Engineer Intern',
+    period: 'Sep 2026 - Dec 2026',
+    logo: '/assets/sap.svg',
+    logoClassName: 'object-contain p-1.5',
+    details: [
+      'Built TypeScript/React analytics features using Redux, engineering query-state management and multidimensional filtering workflows to reduce data retrieval latency by 25%.',
+      'Optimized HANA queries, resolving 15+ performance and correctness issues in calculations, filtering, and sorting.',
+    ],
+  },
+  {
+    company: 'Morgan Stanley',
+    role: 'Software Engineer Intern',
+    period: 'May 2026 - Aug 2026',
+    logo: '/assets/morganstanley.jpg',
+    logoClassName: 'object-cover',
+    details: [
+      'Engineered end-to-end Python ETL pipelines for the Archival Status Report platform, restoring 150M+ SMS/MMS records into Snowflake for enterprise legal and compliance reporting workflows.',
+      'Built a Streamlit application powered by Snowflake Cortex, enabling 7+ teams to query data using natural language.',
+      'Built a reusable ETL orchestration and validation framework, accelerating onboarding by 2+ hours per pipeline.',
+    ],
+  },
+  {
+    company: 'Carleton University',
+    role: 'Database Management Systems Teaching Assistant',
+    period: 'Sep 2025 - Dec 2025',
+    logo: '/assets/carleton.svg',
+    logoClassName: 'object-contain p-2',
+    details: [
+      'Mentored 100+ students in SQL and NoSQL database concepts while providing technical leadership.',
     ],
   },
   {
     company: 'Royal Bank of Canada',
-    role: 'Security DevOps Engineer Intern',
+    role: 'Software Engineer Intern',
     period: 'May 2025 - Aug 2025',
     logo: '/assets/rbc1.png',
+    logoClassName: 'object-cover',
     details: [
-      'Automated cloud credential rotation across 50+ services, cutting manual security tickets by 90%.',
-      'Built vulnerability-scanning automation that reduced false deployment blocks by 85% and sped scans by 60%.',
-      'Improved Kubernetes efficiency by 40% through OpenShift resource tuning and Helm-based VPA configuration.',
+      'Engineered a Python GitHub Actions workflow automating Azure Service Principal secret rotation and zero-downtime Kubernetes pod rollouts, eliminating 90% of manual credential tickets across 50+ workloads.',
+      'Engineered a Java Spring Boot batch service processing SCA vulnerability data for 10+ applications, leveraging Redis caching to reduce scan latency by 60% and false deployment blocks by 85%.',
+      'Optimized Kubernetes resource requests across 15+ applications using Grafana metrics, reducing waste by 40%.',
     ],
   },
   {
     company: 'Royal Bank of Canada',
-    role: 'Backend Engineer Intern',
+    role: 'Software Engineer Intern',
     period: 'May 2024 - Dec 2024',
     logo: '/assets/rbc1.png',
+    logoClassName: 'object-cover',
     details: [
-      'Built Spring Boot compliance APIs that reduced manual reporting time by 40% across capital markets systems.',
-      'Cut cloud resource usage by 50% by integrating load testing and chaos engineering into CI pipelines.',
-      'Created a certificate-management API to improve security visibility and lifecycle control by 25%.',
+      'Integrated k6 load testing and Gremlin chaos engineering into Jenkins/GitHub Actions, automating post-deployment performance validation and workload right-sizing across 20 services for production workloads.',
+      'Implemented audit reporting endpoints for a Java Spring Boot management API, enabling automated certificate audits across 30+ services and increasing compliance tracking by 25%.',
+      'Built a Java Spring Boot service exposing compliance data through REST APIs, reducing reporting time by 40%.',
     ],
   },
 ]
@@ -50,7 +86,6 @@ export default function ExperiencePanel() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.3 }}
-      whileHover={{ scale: 1.01 }}
       className="glass-card p-6"
     >
       <div className="flex items-center space-x-2 mb-6">
@@ -70,35 +105,37 @@ export default function ExperiencePanel() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
-              className="border border-white/10 rounded-lg p-4 hover:border-white/20 transition-colors"
+              className="surface-tile p-4"
             >
-              <div className="flex items-start space-x-4">
+              <div className="grid grid-cols-[3rem_minmax(0,1fr)_2.25rem] md:grid-cols-[3rem_minmax(0,1fr)_auto_2.25rem] items-start gap-x-3 md:gap-x-4">
                 {/* Company Logo */}
-                <div className={`relative rounded-full overflow-hidden border border-white/10 flex-shrink-0 ${
-                  exp.company === 'Royal Bank of Canada' ? 'w-11 h-11' : 'w-12 h-12'
-                }`}>
-                  <Image
-                    src={exp.logo}
-                    alt={exp.company}
-                    fill
-                    className="object-cover"
-                    quality={100}
-                  />
+                <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/10 bg-white/5 flex items-center justify-center">
+                    <Image
+                      src={exp.logo}
+                      alt={exp.company}
+                      fill
+                      sizes="48px"
+                      className={exp.logoClassName}
+                      quality={100}
+                    />
                 </div>
-                
+
                 {/* Company and Role Info */}
-                <div className="flex-1 min-w-0 pr-2">
+                <div className="min-w-0">
                   <div>
                     <h4 className="text-white font-semibold text-base break-words">{exp.company}</h4>
                     <p className="text-gray-400 text-sm mt-0.5 break-words leading-relaxed">{exp.role}</p>
+                    <p className="text-gray-400 text-sm mt-2 md:hidden">{exp.period}</p>
                   </div>
                 </div>
                 
                 {/* Date and Arrow - Aligned */}
-                <div className="flex items-center space-x-3 flex-shrink-0">
-                  <p className="text-gray-400 text-sm hidden md:block">{exp.period}</p>
+                <p className="text-gray-400 text-sm hidden md:block whitespace-nowrap pt-2 text-right">{exp.period}</p>
+                <div>
                   <motion.button
                     onClick={() => toggleExpand(index)}
+                    aria-expanded={isExpanded}
+                    aria-label={`${isExpanded ? 'Collapse' : 'Expand'} ${exp.company} ${exp.period} experience`}
                     className="p-2 hover:bg-white/5 rounded-lg transition-colors flex-shrink-0"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}

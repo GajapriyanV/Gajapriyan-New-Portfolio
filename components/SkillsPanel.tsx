@@ -15,7 +15,6 @@ export default function SkillsPanel() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.6 }}
-      whileHover={{ scale: 1.01 }}
       className="glass-card p-6"
     >
       <div className="flex items-center space-x-2 mb-6">

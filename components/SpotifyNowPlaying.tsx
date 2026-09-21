@@ -2,18 +2,32 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import { demoDuration, formatTime, getDemoPlayback, initialElapsed, tracks } from '@/lib/spotify-demo'
 
 export default function SpotifyNowPlaying() {
-  const currentTime = '02:11'
-  const totalTime = '02:54'
-  const progress = (131 / 174) * 100 // 02:11 / 02:54
+  const [elapsed, setElapsed] = useState(initialElapsed)
+
+  useEffect(() => {
+    const startedAt = Date.now()
+    const timer = window.setInterval(() => {
+      setElapsed(initialElapsed + (Date.now() - startedAt) / 1000)
+    }, 250)
+    return () => window.clearInterval(timer)
+  }, [])
+
+  const { trackIndex, position } = getDemoPlayback(elapsed)
+  const currentTrack = tracks[trackIndex]
+  const currentTime = formatTime(position)
+  const totalTime = formatTime(demoDuration)
+  const progress = (position / demoDuration) * 100
+  const recentTracks = [1, 2, 3].map(offset => tracks[(trackIndex - offset + tracks.length) % tracks.length])
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.4 }}
-      whileHover={{ scale: 1.02, y: -5 }}
       className="glass-card px-4 md:px-6 pt-4 md:pt-6 pb-4 md:pb-6"
     >
       {/* Header */}
@@ -35,16 +49,17 @@ export default function SpotifyNowPlaying() {
       <div className="flex items-center space-x-4 mb-3">
         <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
           <Image
-            src="/assets/drake cover.jpg"
-            alt="Album Art"
+            src={currentTrack.image}
+            alt={`${currentTrack.title} album art`}
             fill
+            sizes="64px"
             className="object-cover"
             quality={100}
           />
         </div>
         <div className="flex-1 min-w-0">
-          <h4 className="text-white font-semibold text-sm truncate">Under Ground Kings</h4>
-          <p className="text-gray-400 text-xs truncate">Drake</p>
+          <h4 className="text-white font-semibold text-sm truncate">{currentTrack.title}</h4>
+          <p className="text-gray-400 text-xs truncate">{currentTrack.artist}</p>
         </div>
       </div>
 
@@ -54,11 +69,20 @@ export default function SpotifyNowPlaying() {
           <span>{currentTime}</span>
           <span>{totalTime}</span>
         </div>
-        <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+        <div
+          className="w-full h-1 bg-white/10 rounded-full overflow-hidden"
+          role="progressbar"
+          aria-label="Track progress"
+          aria-valuemin={0}
+          aria-valuemax={demoDuration}
+          aria-valuenow={Math.floor(position)}
+          aria-valuetext={`${currentTime} of ${totalTime}`}
+        >
           <motion.div
-            initial={{ width: 0 }}
+            key={trackIndex}
+            initial={false}
             animate={{ width: `${progress}%` }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.25, ease: 'linear' }}
             className="h-full bg-green-500 rounded-full"
           />
         </div>
@@ -67,7 +91,7 @@ export default function SpotifyNowPlaying() {
       {/* Action Buttons */}
       <div className="flex items-center space-x-3 mb-3">
         <motion.a
-          href="https://open.spotify.com/search/Under%20Ground%20Kings%20Drake"
+          href={`https://open.spotify.com/search/${encodeURIComponent(`${currentTrack.title} ${currentTrack.artist}`)}`}
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.02 }}
@@ -94,11 +118,7 @@ export default function SpotifyNowPlaying() {
       <div className="pt-3 border-t border-white/10">
         <h4 className="text-xs text-gray-400 mb-2 uppercase tracking-wider">Recently Played</h4>
         <div className="space-y-2 md:space-y-3">
-          {[
-            { title: 'The Color Violet', artist: 'Tory Lanez', image: '/assets/tory-cover.png' },
-            { title: 'Funky Friday', artist: 'Dave', image: '/assets/DaveFredoFunkyFriday.png' },
-            { title: 'Jungle', artist: 'Drake', image: '/assets/jungle-cover.jpg' },
-          ].map((track, index) => (
+          {recentTracks.map((track, index) => (
             <motion.div
               key={`${track.title}-${index}`}
               initial={{ opacity: 0, x: -10 }}
@@ -112,6 +132,7 @@ export default function SpotifyNowPlaying() {
                   src={track.image}
                   alt={track.title}
                   fill
+                  sizes="40px"
                   className="object-cover"
                   quality={100}
                 />
