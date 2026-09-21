@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 const socialLinks = [
   { name: 'GitHub', icon: 'github', url: 'https://github.com/GajapriyanV', color: 'text-gray-300' },
   { name: 'LinkedIn', icon: 'in', url: 'https://www.linkedin.com/in/gajapriyan-v/', color: 'text-blue-400' },
-  { name: 'Resume', icon: 'resume', url: '/assets/Gajapriyan_Final_Resume_New%20(2).pdf', color: 'text-gray-300' },
+  { name: 'Resume', icon: 'resume', url: '/assets/Gajapriyan_Vigneswaran_Resume_Summer_2027_Updated.pdf', color: 'text-gray-300' },
   { name: 'X', icon: 'x', url: 'https://twitter.com', color: 'text-sky-400' },
 ]
 

@@ -10,14 +10,15 @@ export default function LocalTimeWidget() {
   useEffect(() => {
     const updateTime = () => {
       const now = new Date()
-      const hours = now.getHours()
-      const minutes = now.getMinutes().toString().padStart(2, '0')
-      const seconds = now.getSeconds().toString().padStart(2, '0')
-      const ampm = hours >= 12 ? 'PM' : 'AM'
-      const displayHours = hours % 12 || 12
-      
-      setTime(`${displayHours}:${minutes}:${seconds} ${ampm}`)
+      setTime(now.toLocaleTimeString('en-US', {
+        timeZone: 'America/Toronto',
+        hour: 'numeric',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true,
+      }))
       setDate(now.toLocaleDateString('en-US', { 
+        timeZone: 'America/Toronto',
         weekday: 'long', 
         year: 'numeric', 
         month: 'long', 
@@ -39,7 +40,7 @@ export default function LocalTimeWidget() {
       className="glass-card p-6"
     >
       <div className="flex items-center justify-center mb-4">
-        <h3 className="text-lg font-semibold text-white">My Local Time [EST]</h3>
+        <h3 className="text-lg font-semibold text-white">Eastern Time [ET]</h3>
       </div>
       
       <motion.div
